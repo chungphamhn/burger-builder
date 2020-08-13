@@ -1,0 +1,20 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\assets",
+    "\\src\\assets\\images",
+    "\\src\\components",
+    "\\src\\components\\Burger",
+    "\\src\\components\\Burger\\BuildControls",
+    "\\src\\components\\Burger\\BuildControls\\BuildControl",
+    "\\src\\components\\Burger\\BurgerIngredients",
+    "\\src\\components\\Layout",
+    "\\src\\components\\Navigation",
+    "\\src\\components\\Navigation\\NavigationItems",
+    "\\src\\components\\Navigation\\NavigationItems\\NavigationItem",
+    "\\src\\components\\Navigation\\SideDrawer"
+  ],
+  "SelectedNode": "\\src\\components\\Navigation\\NavigationItems\\NavigationItem\\NavigationItem.css",
+  "PreviewInSolutionExplorer": false
+}
