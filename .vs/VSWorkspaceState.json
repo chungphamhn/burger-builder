@@ -2,19 +2,18 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\assets",
-    "\\src\\assets\\images",
     "\\src\\components",
-    "\\src\\components\\Burger",
-    "\\src\\components\\Burger\\BuildControls",
-    "\\src\\components\\Burger\\BuildControls\\BuildControl",
-    "\\src\\components\\Burger\\BurgerIngredients",
-    "\\src\\components\\Layout",
+    "\\src\\components\\Logo",
     "\\src\\components\\Navigation",
     "\\src\\components\\Navigation\\NavigationItems",
     "\\src\\components\\Navigation\\NavigationItems\\NavigationItem",
-    "\\src\\components\\Navigation\\SideDrawer"
+    "\\src\\components\\Navigation\\SideDrawer",
+    "\\src\\components\\Navigation\\SideDrawer\\DrawToggle",
+    "\\src\\components\\Navigation\\Toolbar",
+    "\\src\\components\\UI",
+    "\\src\\hoc",
+    "\\src\\hoc\\Layout"
   ],
-  "SelectedNode": "\\src\\components\\Navigation\\NavigationItems\\NavigationItem\\NavigationItem.css",
+  "SelectedNode": "\\src\\hoc\\Layout\\Layout.js",
   "PreviewInSolutionExplorer": false
 }

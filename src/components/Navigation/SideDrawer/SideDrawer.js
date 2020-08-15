@@ -21,7 +21,10 @@ const sideDrawer = (props) => {
             />
             <div className={attachedClasses.join(' ')}>
                 <div className="LogoSideDrawer">
-                    <Logo />
+                    <Logo
+                        height="80%"
+                        clicked={props.logoToggleClicked}
+                    />
                 </div>
 
                 <nav>
