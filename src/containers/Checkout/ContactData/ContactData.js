@@ -3,15 +3,91 @@ import Button from '../../../components/UI/Button/Button';
 import './ContactData.css';
 import axios from '../../../axios-orders';
 import Spinner from '../../../components/UI/Spinner/Spinner';
+import Input from '../../../components/UI/Input/Input';
+import { fail } from 'assert';
+import { configure } from '@testing-library/dom';
 
 class ContactData extends Component {
     state = {
-        name: '',
-        email: '',
-        address: {
-            street: '',
-            postalCode: ''
+        orderForm: {
+            name: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Your Name'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
+            },
+            street: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Street'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
+            },
+            zipCode: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Zip Code'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
+            },
+            country: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Your Country'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false,
+                touched: false
+            },
+            email: {
+                elementType: 'input',
+                elementConfig: {
+                    type: 'text',
+                    placeholder: 'Your e-mail'
+                },
+                value: '',
+                validation: {
+                    required: true
+                },
+                valid: false
+            },
+            deliveryMethod: {
+                elementType: 'select',
+                elementConfig: {
+                    options: [
+                        { value: 'fastest', displayValue: 'Fastest' },
+                        { value: 'cheapest', displayValue: 'Cheapest' },
+                        { value: 'pickup', displayValue: 'Pick Up' },
+                    ]
+                }, 
+                value: 'cheapest',
+                validation: {}
+            }
         },
+        formIsValid: false,
         loading: false
     }
 
@@ -19,19 +95,16 @@ class ContactData extends Component {
         event.preventDefault();
 
         this.setState({ loading: true });
+        const formData = {};
+        for (let formElementIdentifier in this.state.orderForm) {
+            formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
+        }
+
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.price,
-            customer: {
-                name: 'test name',
-                address: {
-                    street: 'test street',
-                    zipCode: '12345',
-                    country: 'FI'
-                },
-                email: 'test@test'
-            },
-            deliveryMethod: 'method'
+            orderData: formData
+           
         }
         //console.log(this.props.ingredients);
         axios.post('/orders.json', order)
@@ -43,14 +116,73 @@ class ContactData extends Component {
                 this.setState({ loading: false });
             });
     }
+
+    checkValidity(value, rules) {
+        let isValid = false;
+
+        if (rules.required) {
+            isValid = value.trim() !== '';
+
+            return isValid;
+        }
+    }
+
+    inputChangedHandler = (event, inputIdentifier) => {
+
+        const updatedOrderForm = {
+            ...this.state.orderForm
+        };
+
+        const updatedFormElement = {
+            ...updatedOrderForm[inputIdentifier]
+        }; 
+
+        updatedFormElement.value = event.target.value;
+        updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
+        updatedFormElement.touched = true;
+        updatedOrderForm[inputIdentifier] = updatedFormElement;
+
+        let is_form_valid = true;
+
+        for (let formElement in updatedOrderForm) {
+            if (updatedOrderForm[formElement].valid === false && formElement !== 'deliveryMethod') {
+                is_form_valid = false;
+                break;
+            }
+        }
+
+        
+        this.setState({ orderForm: updatedOrderForm, formIsValid: is_form_valid });
+    }
+
     render() {
+
+        const formElementsArray = [];
+        for (let key in this.state.orderForm) {
+            formElementsArray.push({
+                id: key,
+                config: this.state.orderForm[key]
+            });
+        }
+
+
+
         let form = (
-            <form>
-                <input className="Input" type="text" name="name" placeholder="your name" />
-                <input className="Input" type="text" name="email" placeholder="your email" />
-                <input className="Input" type="text" name="street" placeholder="street" />
-                <input className="Input" type="text" name="postcode" placeholder="your postcode" />
-                <Button btnType="Success" clicked={this.orderHandler}>Order</Button>
+            <form onSubmit={this.orderHandler}>
+                {formElementsArray.map(
+                    formElement => (
+                        <Input
+                            key={formElement.id}
+                            elementType={formElement.config.elementType}
+                            elementConfig={formElement.config.elementConfig}
+                            value={formElement.config.value}
+                            invalid={!formElement.config.valid}
+                            touched={formElement.config.touched}
+                            changed={(event) => this.inputChangedHandler(event, formElement.id)}
+                        />    
+                    )
+                )}
+                <Button btnType="Success" disabled={!this.state.formIsValid} >Order</Button>
             </form>
         );
 

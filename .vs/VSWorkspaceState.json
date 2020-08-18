@@ -6,13 +6,13 @@
     "\\src\\components\\Navigation",
     "\\src\\components\\Navigation\\NavigationItems",
     "\\src\\components\\Navigation\\NavigationItems\\NavigationItem",
-    "\\src\\components\\Order",
-    "\\src\\components\\Order\\CheckoutSummary",
+    "\\src\\components\\UI",
+    "\\src\\components\\UI\\Button",
+    "\\src\\components\\UI\\Input",
     "\\src\\containers",
     "\\src\\containers\\Checkout",
-    "\\src\\containers\\Checkout\\ContactData",
-    "\\src\\containers\\Orders"
+    "\\src\\containers\\Checkout\\ContactData"
   ],
-  "SelectedNode": "\\src\\components\\Order\\Order.js",
+  "SelectedNode": "\\src\\containers\\Checkout\\ContactData\\ContactData.js",
   "PreviewInSolutionExplorer": false
 }
