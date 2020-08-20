@@ -4,14 +4,12 @@
     "\\src",
     "\\src\\components",
     "\\src\\components\\Navigation",
-    "\\src\\components\\Navigation\\NavigationItems",
-    "\\src\\components\\Navigation\\NavigationItems\\NavigationItem",
-    "\\src\\components\\UI",
-    "\\src\\components\\UI\\Button",
-    "\\src\\components\\UI\\Input",
+    "\\src\\components\\Order",
     "\\src\\containers",
+    "\\src\\containers\\BurgerBuilder",
     "\\src\\containers\\Checkout",
-    "\\src\\containers\\Checkout\\ContactData"
+    "\\src\\containers\\Checkout\\ContactData",
+    "\\src\\containers\\Orders"
   ],
   "SelectedNode": "\\src\\containers\\Checkout\\ContactData\\ContactData.js",
   "PreviewInSolutionExplorer": false

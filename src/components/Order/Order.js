@@ -24,7 +24,7 @@ const order = (props) => {
                 padding: '5px'
             }}
             key={ig.name}>{ig.name} ({ig.amount})</span>
-    })
+    });
 
     return (
         <div className="Order">
@@ -34,5 +34,7 @@ const order = (props) => {
     );
     
 }
+
+
 
 export default order;

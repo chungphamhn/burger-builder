@@ -1,8 +1,8 @@
 import React from 'react';
 import './Burger.css';
 import BurgerIngredient from './BurgerIngredients/BurgerIngredients';
-import { object } from 'prop-types';
-import { type } from 'os';
+//import { object } from 'prop-types';
+//import { type } from 'os';
 
 const burger = (props) => {
 
