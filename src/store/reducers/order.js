@@ -1,4 +1,8 @@
 import * as actionTypes from '../actions/actionTypes';
+import { updateObject } from '../utility';
+
+//use updateObject to reduce lines of code
+//this is extra task
 
 const initialState = {
     orders: [],
@@ -10,10 +14,11 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.PURCHASE_INIT:
             console.log("purchase init");
-            return {
-                ...state,
-                purchased: false
-            };
+            return updateObject(state, { purchased: false });
+            //return {
+            //    ...state,
+            //    purchased: false
+            //};
         case actionTypes.PURCHASE_BURGER_START:
             return {
                 ...state,

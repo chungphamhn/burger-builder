@@ -6,8 +6,25 @@ import { Route, Switch } from 'react-router-dom';
 import Orders from './containers/Orders/Orders';
 
 
-class App extends Component {
 
+class App extends Component {
+    state = {
+        ingredients: null,
+        totalPrice: 4,
+        purchasable: false,
+        error: false
+    }
+
+    test = () => {
+        const testState = () => {
+            return {
+                ...this.state,
+                totalPrice: 0
+            };
+        };
+        console.log(this.state.totalPrice);
+        console.log(testState);
+    }
     //test 
     //state = {
     //    show: true
@@ -20,6 +37,7 @@ class App extends Component {
     //}
 
     render() {
+        this.test();
         return (
             <div>
                 <Layout >

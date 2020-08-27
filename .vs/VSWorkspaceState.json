@@ -3,14 +3,15 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\Navigation",
-    "\\src\\components\\Order",
+    "\\src\\components\\Burger",
+    "\\src\\components\\Burger\\BuildControls",
     "\\src\\containers",
     "\\src\\containers\\BurgerBuilder",
     "\\src\\containers\\Checkout",
-    "\\src\\containers\\Checkout\\ContactData",
-    "\\src\\containers\\Orders"
+    "\\src\\containers\\Orders",
+    "\\src\\store",
+    "\\src\\store\\reducers"
   ],
-  "SelectedNode": "\\src\\containers\\Checkout\\ContactData\\ContactData.js",
+  "SelectedNode": "\\src\\store\\reducers\\order.js",
   "PreviewInSolutionExplorer": false
 }
