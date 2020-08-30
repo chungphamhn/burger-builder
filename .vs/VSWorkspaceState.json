@@ -3,15 +3,14 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\Burger",
-    "\\src\\components\\Burger\\BuildControls",
+    "\\src\\components\\Navigation",
+    "\\src\\components\\Navigation\\NavigationItems",
+    "\\src\\components\\Order",
     "\\src\\containers",
-    "\\src\\containers\\BurgerBuilder",
+    "\\src\\containers\\Auth",
     "\\src\\containers\\Checkout",
-    "\\src\\containers\\Orders",
-    "\\src\\store",
-    "\\src\\store\\reducers"
+    "\\src\\hoc"
   ],
-  "SelectedNode": "\\src\\store\\reducers\\order.js",
+  "SelectedNode": "\\src\\components\\Navigation\\NavigationItems\\NavigationItems.js",
   "PreviewInSolutionExplorer": false
 }

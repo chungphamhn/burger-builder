@@ -80,10 +80,9 @@ export const fetchOrders = () => {
                     dispatch(fetchOrdersSuccess(fetchedOrders));
                     //this.setState({ loading: false, orders: fetchedOrders });
                 }
-            ).
-            catch(
-            error => {
-                dispatch(fetchOrdersFail(error));
+            ).catch(
+                error => {
+                    dispatch(fetchOrdersFail(error));
                     //this.setState({ loading: false });
                 }
             );
