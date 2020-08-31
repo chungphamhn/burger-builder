@@ -3,14 +3,16 @@
     "",
     "\\src",
     "\\src\\components",
-    "\\src\\components\\Navigation",
-    "\\src\\components\\Navigation\\NavigationItems",
-    "\\src\\components\\Order",
+    "\\src\\components\\UI",
+    "\\src\\components\\UI\\Input",
     "\\src\\containers",
     "\\src\\containers\\Auth",
     "\\src\\containers\\Checkout",
-    "\\src\\hoc"
+    "\\src\\containers\\Checkout\\ContactData",
+    "\\src\\store",
+    "\\src\\store\\actions",
+    "\\src\\store\\reducers"
   ],
-  "SelectedNode": "\\src\\components\\Navigation\\NavigationItems\\NavigationItems.js",
+  "SelectedNode": "\\src\\store\\reducers\\auth.js",
   "PreviewInSolutionExplorer": false
 }
