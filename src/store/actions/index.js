@@ -3,5 +3,6 @@ export { purchaseBurger, purchaseInit, fetchOrders } from './order';
 
 export {
     auth,
-    authLogout
+    authLogout,
+    authCheckState
 } from './auth';

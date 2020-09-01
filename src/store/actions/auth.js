@@ -26,6 +26,10 @@ export const authFail = (error) => {
 };
 
 export const authLogout = () => {
+
+    localStorage.removeItem('token');
+    localStorage.removeItem('expirationDate');
+    localStorage.removeItem('userId');
     return {
         type: actionTypes.AUTH_LOGOUT
     };
@@ -37,7 +41,6 @@ export const checkAuthTimeout = (expirationTime) => {
         setTimeout(() => {
             dispatch(authLogout());
         }, expirationTime * 1000);
-        console.log(expirationTime * 1000/3600);
     };
 };
 
@@ -55,16 +58,40 @@ export const auth = (email, password, isSignup) => {
         if (!isSignup) {
             url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=' + api;
         }
-        console.log(authData);
+
         axios.post(url, authData)
             .then(response => {
+                const expirationDate = new Date(new Date().getTime() + response.data.expiresIn * 1000);
+                localStorage.setItem('token', response.data.idToken);
+                localStorage.setItem('expirationDate', expirationDate);
+                localStorage.setItem('userId', response.data.localId);
+
                 dispatch(authSuccess(response.data.idToken, response.data.localId));
                 dispatch(checkAuthTimeout(response.data.expiresIn));
-                console.log(response.data.expiresIn);
             })
             .catch(error => {
                 dispatch(authFail(error.response.data.error));
                 console.log(error.response.data);
             });
+    };
+};
+
+export const authCheckState = () => {
+    return dispatch => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            dispatch(authLogout());
+        } else {
+            const expirationDate = new Date(localStorage.getItem('expirationDate'));
+            if (expirationDate > new Date()) {
+                
+                const userId = localStorage.getItem('userId');
+                dispatch(authSuccess(token, userId));
+                dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000));
+            } else {                
+                dispatch(authLogout());
+                console.log("logout");
+            }
+        }
     };
 };

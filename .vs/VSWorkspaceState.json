@@ -3,16 +3,18 @@
     "",
     "\\src",
     "\\src\\components",
+    "\\src\\components\\Burger",
+    "\\src\\components\\Burger\\BuildControls",
+    "\\src\\components\\Burger\\BuildControls\\BuildControl",
+    "\\src\\components\\Burger\\BurgerIngredients",
+    "\\src\\components\\Burger\\OrderSummary",
+    "\\src\\components\\Order",
+    "\\src\\components\\Order\\CheckoutSummary",
     "\\src\\components\\UI",
-    "\\src\\components\\UI\\Input",
-    "\\src\\containers",
-    "\\src\\containers\\Auth",
-    "\\src\\containers\\Checkout",
-    "\\src\\containers\\Checkout\\ContactData",
-    "\\src\\store",
-    "\\src\\store\\actions",
-    "\\src\\store\\reducers"
+    "\\src\\components\\UI\\Backdrop",
+    "\\src\\components\\UI\\Button",
+    "\\src\\components\\UI\\Modal"
   ],
-  "SelectedNode": "\\src\\store\\reducers\\auth.js",
+  "SelectedNode": "\\src\\containers\\BurgerBuilder\\BurgerBuilder.js",
   "PreviewInSolutionExplorer": false
 }
