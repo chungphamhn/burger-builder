@@ -11,10 +11,12 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import { connect } from 'react-redux';
 
 import * as burgerBuilderActions from '../../store/actions/index';
-
-
-
-
+/**
+ * The main component
+ * User can add ingredients of a burger 
+ * Then calculate price
+ * Handle continue after adding ingredients
+ * */
 class BurgerBuilder extends Component {
 
 
@@ -24,9 +26,12 @@ class BurgerBuilder extends Component {
     }
 
     componentDidMount() {
+        //load burger template
+        //store.dispatch(burgerBuilderActions.fetchIngredients());      //this can be used
         this.props.onFetchIngredients();
     }
-   
+
+    //after user adds ingredients
     purchaseContinueHandle = () => {
         this.props.onInitPurchase();
         this.props.history.push('/checkout');
@@ -36,6 +41,7 @@ class BurgerBuilder extends Component {
         this.setState({ purchasing: false });
     }
 
+    //use to display dropdown or redirect to login page
     purchaseHandler = () => {
         if (this.props.isAuthenticated)
             this.setState({ purchasing: true });
@@ -44,7 +50,7 @@ class BurgerBuilder extends Component {
     }
 
     updatePurchaseable(ingredients) {
-
+        //sum of ingredients
         const sum = Object.keys(ingredients).map(
             igKey => {
                 return ingredients[igKey];
@@ -59,12 +65,13 @@ class BurgerBuilder extends Component {
 
     render() {
 
+        //to enable or disable add/subtract ingredient buttons
         const disableInfo = {
             ...this.props.ings
         };
 
         for (let key in disableInfo) {
-
+            //disable when no ingredient added
             disableInfo[key] = disableInfo[key] <= 0;
 
         }
@@ -78,12 +85,12 @@ class BurgerBuilder extends Component {
                 <Aux>
                     <Burger ingredients={this.props.ings} />
                     <BuildControls
-                        ingredientAdded={this.props.onIngredientAdded}
-                        ingredientRemove={this.props.onIngredientRemoved}
-                        disabled={disableInfo}
+                        ingredientAdded={this.props.onIngredientAdded}              //add button
+                        ingredientRemove={this.props.onIngredientRemoved}           //remove button
+                        disabled={disableInfo}                                      //disable buttons
                         price={this.props.price}
-                        purchaseable={this.updatePurchaseable(this.props.ings)}
-                        ordered={this.purchaseHandler}
+                        purchaseable={this.updatePurchaseable(this.props.ings)}     //enable/disable continue button
+                        ordered={this.purchaseHandler}                              //continue button
                         isAuth={this.props.isAuthenticated}
                     />
                 </Aux>
@@ -103,12 +110,12 @@ class BurgerBuilder extends Component {
 
         return (
             <Aux>
-                <Modal
+                <Modal  //to use dropdown
+                    //enable/disable dropdown
                     show={this.state.purchasing}
                     modalClosed={this.purchaseCancelHandler}
-                >
-                    {orderSummary}
-                </Modal>
+                >{orderSummary}</Modal>
+
                 {burger}
             </Aux>
         );
@@ -116,7 +123,7 @@ class BurgerBuilder extends Component {
 }
 
 const mapStateToProps = state => {
-
+    //state
     return {
         ings: state.burgerBuilder.ingredients,
         price: state.burgerBuilder.totalPrice,
@@ -127,6 +134,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
+    //action
     return {
         onIngredientAdded: (ingName) => dispatch(burgerBuilderActions.addIngredient(ingName)),
         onIngredientRemoved: (ingName) => dispatch(burgerBuilderActions.removeIngredient(ingName)),

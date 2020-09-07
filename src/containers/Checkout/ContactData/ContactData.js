@@ -9,6 +9,11 @@ import { connect } from 'react-redux';
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../../store/actions/index';
 
+/**
+ * After order is confirmed
+ * Display the contact form
+ * Then send the order details to database include contact info
+ * */
 class ContactData extends Component {
     state = {
         orderForm: {
@@ -103,6 +108,8 @@ class ContactData extends Component {
             formData[formElementIdentifier] = this.state.orderForm[formElementIdentifier].value;
         }
 
+        //order details
+        
         const order = {
             ingredients: this.props.ings,
             price: this.props.price,
@@ -110,9 +117,11 @@ class ContactData extends Component {
             userId: this.props.userId
         }
 
+        //dispatch action
         this.props.onOrderBurger(order, this.props.token);
     }
 
+    //check input validation
     checkValidity(value, rules) {
         let isValid = false;
 

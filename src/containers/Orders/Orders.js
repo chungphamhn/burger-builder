@@ -8,11 +8,9 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 
 class Orders extends Component {
 
-    //state = {           
-    //    orders: [],
-    //    loading: true
-    //}
-
+    /**
+     * Display all previous orders from the user
+     * */
     componentDidMount() {
         this.props.onFetchOrders(this.props.token, this.props.userId);
 

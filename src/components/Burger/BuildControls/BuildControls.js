@@ -8,7 +8,10 @@ const controls = [
     { label: 'Cheese', type: 'cheese' },
     { label: 'Meat', type: 'meat' }
 ];
-
+/**
+ * This handles adding, removing ingredients
+ * 
+ */
 const buildControls = (props) => (
     <div className="BuildControls">
         <p>Current Price: <strong>{props.price.toFixed(2)}</strong></p>

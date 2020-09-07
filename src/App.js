@@ -16,10 +16,12 @@ import * as actions from './store/actions/index';
 class App extends Component {
 
     componentDidMount() {
+        //avoid logout after refreshing the page
         this.props.onTryAutoSignup();
     }
 
     render() {
+        //if user signin
         let route = (
             <Switch>
                 <Route path="/checkout" component={Checkout} />
@@ -27,10 +29,11 @@ class App extends Component {
                 <Route path="/auth" component={Auth} />
                 <Route path="/logout" component={Logout} />
                 <Route path="/" exact component={BurgerBuilder} />
-                <Redirect to="/" />                                 //default
+                <Redirect to="/" />                                 //redirect to homepage if gave wrong address
             </Switch>
         );
 
+        //if user hasn't login
         if (!this.props.isAuthenticated) {
             route = (
                 <Switch>
@@ -49,6 +52,7 @@ class App extends Component {
             </div>
         );
     }
+    
 }
 
 const mapStateToProps = state => {
@@ -56,6 +60,7 @@ const mapStateToProps = state => {
         isAuthenticated: state.auth.token !== null
     };
 };
+
 
 const mapDispatchToProps = dispatch => {
     return {

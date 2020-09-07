@@ -3,6 +3,10 @@ import Burger from '../../Burger/Burger';
 import Button from '../../UI/Button/Button';
 import './CheckoutSummary.css';
 
+
+/**
+ * Display summary of order
+ */
 const checkoutSummary = (props) => {
 
     return (

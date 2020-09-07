@@ -7,7 +7,9 @@ import { connect } from 'react-redux';
 import './Auth.css';
 import * as actions from '../../store/actions/index';
 import Spinner from '../../components/UI/Spinner/Spinner';
-
+/**
+ * Handle sign in, sign out
+ * */
 class Auth extends Component {
 
     state = {

@@ -1,6 +1,9 @@
 import React from 'react';
 import './Order.css';
-
+/**
+ * A previous order from the user
+ * 
+ */
 const order = (props) => {
 
     const ingredients = [];

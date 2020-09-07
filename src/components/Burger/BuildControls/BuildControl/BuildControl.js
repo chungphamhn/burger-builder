@@ -1,6 +1,9 @@
 import React from 'react';
 import './BuildControl.css';
-
+/**
+ * Used in BuilControls component
+ * 
+ */
 const buildControl = (props) => (
     <div className="BuildControl">
         <div className="Label">{props.label}</div>
