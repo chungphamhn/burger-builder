@@ -5,15 +5,11 @@
     "\\src\\components",
     "\\src\\components\\Burger",
     "\\src\\components\\Burger\\BuildControls",
-    "\\src\\components\\Burger\\BuildControls\\BuildControl",
-    "\\src\\components\\Burger\\BurgerIngredients",
-    "\\src\\components\\Burger\\OrderSummary",
-    "\\src\\components\\Order",
-    "\\src\\components\\Order\\CheckoutSummary",
-    "\\src\\components\\UI",
-    "\\src\\components\\UI\\Backdrop",
-    "\\src\\components\\UI\\Button",
-    "\\src\\components\\UI\\Modal"
+    "\\src\\components\\Navigation",
+    "\\src\\components\\Navigation\\NavigationItems",
+    "\\src\\containers",
+    "\\src\\containers\\Auth",
+    "\\src\\containers\\Checkout"
   ],
   "SelectedNode": "\\src\\containers\\BurgerBuilder\\BurgerBuilder.js",
   "PreviewInSolutionExplorer": false

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Aux from '../../hoc/A-u-x/A-u-x';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
@@ -16,35 +17,19 @@ import * as burgerBuilderActions from '../../store/actions/index';
 
 class BurgerBuilder extends Component {
 
-    //constructor(props) {
-    //    super(props);
-    //    this.state = {...}
-    //}
+
     state = {
-        //ingredients: null,
-        //totalPrice: 4,
-        //purchaseable: false,
-        purchasing: false,
-        //loading: false,
-        //error: false
+
+        purchasing: false
     }
 
     componentDidMount() {
         this.props.onFetchIngredients();
-        //axios.get('https://burger-builder-db3d3.firebaseio.com/ingredients.json')
-        //    .then(response => {
-        //        //console.log(response);
-        //        this.setState({ ingredients: response.data });
-        //    })
-        //    .catch(error => {
-        //        this.setState({ error: true });
-        //    });
     }
-
+   
     purchaseContinueHandle = () => {
         this.props.onInitPurchase();
         this.props.history.push('/checkout');
-        //try redirect
     }
 
     purchaseCancelHandler = () => {
