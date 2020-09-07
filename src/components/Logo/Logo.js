@@ -4,7 +4,11 @@ import './Logo.css';
 
 const logo = (props) => (
 
-    <div className="Logo">
+    <div
+        className="Logo"
+        style={{ height: props.height }}
+        onClick={props.clicked}
+    >
         <img src={burgerLogo} alt="MyBurger" />
     </div>
 );

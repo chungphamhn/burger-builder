@@ -19,13 +19,16 @@ const sideDrawer = (props) => {
                 show={props.show}
                 clicked={props.closed}
             />
-            <div className={attachedClasses.join(' ')}>
+            <div className={attachedClasses.join(' ')} onClick={props.closed}>
                 <div className="LogoSideDrawer">
-                    <Logo />
+                    <Logo
+                        height="80%"
+                        clicked={props.logoToggleClicked}
+                    />
                 </div>
 
                 <nav>
-                    <NavigationItems />
+                    <NavigationItems isAuth={props.isAuth} />
                 </nav>
             </div>
         </Aux>
